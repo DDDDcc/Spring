@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>加载事件优化</title>
+		<script>
+			//兼容一下：标准浏览器和ie浏览器，在文档加载完成后就里脊绑定事件
+			document.addEventListener('DOMContentLoaded', function() {
+				//给按钮绑定事件
+				var btn = document.getElementById('btn');
+				btn.addEventListener('click', function() {
+					alert('ok');
+				}, false);
+			}, false);
+			
+			
+//			//所有的窗口元素都加载完成后才触发（不包括ajax请求的内容）
+//			window.onload = (){
+//				console.log('window');
+//			}
+		</script>
+
+	</head>
+
+	<body>
+		<input type="button" name="btn" id="btn" value="点击我" />
+	</body>
+
+</html>

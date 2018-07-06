@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				border: 1px solid #ccc;
+			}
+			.parent{
+				height: 200px;
+				width: 200px;
+				padding: 30px;
+				background-color: #maroon;
+			}
+			.child{
+				height: 100px;
+				width: 100px;
+				background-color: #90c;
+			}
+		</style>
+	</head>
+	<body>
+		<!--事件分为捕获阶段和冒泡阶段。捕获阶段就是事件信息从顶层向下层传递的过程
+			而冒泡是事件反应处理从底层向上反馈的过程，例如：一个公司的文件法规从上层
+			一直向下层进行传达，而反应低从底层一层层的向上反馈
+		-->
+		<!--js可以通过addEventListener来实现捕获阶段或者冒泡阶段的事件响应方法注册-->
+		<!--直接对Dom对象上设置的事件属性和标签直接编写标签属性的方式
+			都是在冒泡阶段执行的
+		-->
+		<div class="parent">
+			我是父级div标签
+			<div  class="child">
+				我是子标签div
+			</div>
+		</div>
+		<script>
+			//事件流
+			//点击了子元素标签的时候，父元素的绑定事件也会被执行。原因:事件冒泡
+			//给父元素绑定一个点击事件。点击子元素，看看是否事件响应方法（事件处理程序）执行
+		var parentDiv  = document.querySelector(".parent");
+		parentDiv.onclick = function(){
+			alert('父div被点击了');
+		};
+		</script>
+	</body>
+</html>

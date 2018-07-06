@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,
+			body,
+			div {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				background-color: #BB22DD
+			}
+			
+			.box {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background-color: blueviolet;
+				border: 1px solid #ccc;
+				cursor: move;
+				/*改变鼠标光标样式*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box" style="left: 50px;top:60px;">
+
+		</div>
+		<script type="text/javascript">
+			//监听div的mousedown事件，开始计算鼠标移动的位移。通过鼠标位移水平方向设置div的left值
+			//通过计算鼠标垂直方式移动的位移，来设置div的top值
+			//如果div：mouseup触发了，那么计算和移动div就结束
+			//mousedown的时候，设置标志位开始移动div。mouseup的时候，设置标志位为false；
+			//停止移动div。mousemove的时候，记录当前的位置和上一次mousemove的位置坐移动距离的计算，并移动div
+			window.onload = function() {
+				var isMove = false;
+				var box = document.getElementById('box');
+				var tempX = 0,
+					tempY = 0;
+
+				//鼠标按下，开始移动div
+				box.onmousedown = function(e) {
+					isMove = true;
+
+					//当鼠标点下去的时候，设置第一个鼠标上一次移动的位置
+					tempX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+					tempY = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+				};
+				//鼠标抬起，停止移动div
+				box.onmouseup = function(e) {
+					isMove = false;
+
+				};
+
+				//mouseove的时候移动div
+				document.onmousemove = function(e) {
+					//判断鼠标点下去才做移动
+					if( !isMove ) {
+						return;
+					};
+					//计算当前鼠标的位置。
+					//screenX screenY滚动就不怎么好用
+					//最好的使用 pageX，pageY,不管是否滚动了页面，都不影响
+
+					e = e || window.event; //兼容处理
+					//下面是鼠标相对于页面的x和Y的坐标
+					var pageX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+					var pageY = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+
+					//移动的距离
+					var xH = pageX - tempX;
+					var yH = pageY - tempY;
+				
+					//要把移动的div，在x方向，移动xH,在y方向移动yH距离
+					//设置元素的style.left style.top
+					//一开始没哟通过js设置style.left style.top，那么值都是null；
+					//js是拿不到css设置的left和top; .js只能控制的标签的style属性，并且读取标签属性中的left和top;
+					box.style.left = (parseFloat(box.style.left) + xH) + "px"; //parseFloat:转换成可计算的数字
+					box.style.top = (parseFloat(box.style.top) + yH) + "px";
+
+					//为鼠标下一次mousemove事件计算做初始化鼠标位置
+					tempX = pageX;
+					tempY = pageY;
+
+				};
+
+			}
+		</script>
+
+	</body>
+
+</html>

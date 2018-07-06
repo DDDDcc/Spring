@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>解除事件绑定</title>
+	</head>
+	<body>
+		<!--removeEventListener-->
+		<input type="button" name="btClick" id="btClick" value="点击按钮" />
+		<input type="button" name="btnRemove" id="btnRemove" value="解除绑定按钮" />
+		<input type="button" name="" id="btn3" value="按钮3" />
+		<script>
+			
+			var btnClick  = document.querySelector('#btClick');
+			var btnRemove = document.querySelector('#btnRemove');
+			//dom绑定事件
+			
+			btnClick.onclick = function(){
+				alert('Dome0级事件');
+			};
+			//dom2级绑定事件
+			btnRemove.addEventListener('click',function(){
+				//给btnClick按钮解绑
+				btnClick.onclick = null;
+				//给btnclic按钮解绑Dom2事件解绑
+				btnClick.removeEventListener('click',btnClickHander);
+			});
+			
+			//dom2级事件绑定和解绑
+			btnClick.addEventListener('click',btnClickHander);
+			
+			//事件处理程序
+			function btnClickHander(){
+				alert('Dom2级事件绑定');
+			};
+			//备注：解绑指向的函数，事件处理程序必须单独出来，函数地址必须完全一样才可以。指向同一个函数才可以。
+			
+			//不能使用匿名函数去解绑
+			var btn3 = document.querySelector('#btn3');
+			btn3.addEventListener('click',function(){
+				alert('3');
+			});
+			btn3.removeEventListener('click',function(){
+				alert('3');
+			});
+			
+		</script>
+	</body>
+</html>

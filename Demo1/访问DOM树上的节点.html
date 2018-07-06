@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+		<!--p#p${段落$}*3快捷-->
+		<p id="p1">段落1</p>
+		<p id="p2">段落2</p>
+		<p id="p3">段落3</p>
+		<script>
+			
+			//获得段落2的标签对象
+			var elementp =	document.getElementById('p2');
+				//接口：有自己规定的方法、属性。但是必须有子类给他实现。
+				//类型：可以直接创建实例。比如：Number类型
+			//一般情况下，如果函数的没有具体的值，一般都会返回null.
+			Element常用属性:
+			Element.attributes:获取所有属性key-value集合
+			Element.className获取类名
+			Element.id获取元素id
+			Element.innerHTML获取元素内部包裹的html标签字符串
+			Element.tagName(只读)获取元素的标签名字符串
+			常用方法:
+			Element.getAttribute(attName)返回属性的字符串值
+			Element.removeAttribute(attrName)从指定的元素中删除一个属性-----<div class="" id=""></div>  删除id属性: div.removeAttribute("id");
+			Element.setAttribute(name,value)设置属性
+			Element.hasAttribute()检测属性是否存在
+			Element.getElementsByClassName()
+			Element.getElementsByTagName()
+			
+			document.getElementsByClassName("class")//返回的是一个伪数组
+			console.dir();
+			for (var i in array) {
+				console.log(array[i].innerHTML);//获取这个数组内部的内容
+			}
+			HTML Collection接口详解;
+			document.getElementsByTagName("*")//*代表获取当前页面所有的标签，次方法获取出来的也是伪数组，获取的是动态集合，当html发生变化的时候会自动更新
+			
+			
+		</script>
+	</body>
+</html>

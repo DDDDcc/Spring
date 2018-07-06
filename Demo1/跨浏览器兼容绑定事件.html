@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="button" name="btn" id="btn" value="点击" />
+		<script>
+			//兼容ie和其他浏览器
+			var btn = document.querySelector('#btn');
+			//所有浏览器都兼容dom0的注册绑定事件方式
+			//			btn.onclick = function(){
+			//				alert('ok');
+			//			};
+			
+			//兼容ie浏览器和其他浏览器的兼容处理
+			if(btn.addEventListener) {
+				btn.addEventListener('click', clickHander)
+			} else {
+				//ie浏览器的绑定
+				btn.attachEvent('onclick', clickHander);
+			};
+			function clickHander(){
+				alert('兼容处理');
+			};
+		</script>
+
+	</body>
+
+</html>

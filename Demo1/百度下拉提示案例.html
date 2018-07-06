@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度搜索框案例</title>
+	</head>
+	<style type="text/css">
+		
+		html,body,div,ul,input{
+			margin: 0;
+			padding: 0;
+		}
+			ul{
+			list-style: none;
+		}
+		.search_box_wrap{
+			margin: 0 auto;
+			width: 300px;
+			height: 400px;
+			position: relative;
+		}
+		.search_box_wrap .list{
+			border: 1px solid #ddd;
+			width: 198px;
+			display: none;
+			position: absolute;
+		}
+		.text_search{
+			border-width: 2px;
+			width: 186px;
+			padding-left: 10px;
+			line-height: 20px;
+			height: 20px;
+		}.search_box_wrap .list li{
+			height: 25px;
+			line-height: 25px;
+			
+		}
+		.search_box_wrap .list li:hover{
+			background-color:#CCCCCC;
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		
+		<div class="search_box_wrap">
+			<input type="text" name="" class="text_search" id = "textSearch"  value="" />
+			<ul class="list" id="tipList">
+				<li>AA</li>
+				<li>bb</li>
+				<li>CC</li>
+				<li>DD</li>
+				<li>EEE</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			//当文本框获得焦点，提示框显示，失去焦点，提示框关闭
+		//自执行函数
+				//模拟的块级作用域，不影响全局变量
+				window.onload = function(){
+					var textSearch = document.getElementById("textSearch");
+					var tipList = document.getElementById('tipList');
+					var liList = tipList.getElementsByTagName('li');
+					textSearch.onfocus = function(){
+						//弹出提示框
+						tipList.style.display = "block";
+					}
+					textSearch.onblur = function (){
+						tipList.style.display = "none";
+					}
+					//给所有li绑定点击事件，实现li点击后，让li上的文本放到文本框上去
+					for(var i  = 0;i<liList.length;i++){
+						liList[i].onmousedown = tipLiHander;
+						//点击事件和失去焦点执行顺序：
+						//先执行mousedown事件，事件中会让被点击事件的元素获得焦点
+//						那么原来获得焦点元素就会失去焦点
+//						mousedown→原来获得焦点元素blur事件→当元素的mouseup事件→click事件执行
+				//如果mousedown事件中,阻止默认行为,那么次元素就不会获得焦点
+					};
+					
+					//失去焦点事件：onblur和click冲突
+					//所有li标签点击事件的绑定的事件处理程序，减少内存消耗
+					function tipLiHander(){
+						var txt = this.innerHTML;//this ===liList[i];
+							textSearch.value = txt;//把li标签的文本设置到文本框上去。
+					}
+					
+					
+					
+				}
+		</script>
+	</body>
+</html>

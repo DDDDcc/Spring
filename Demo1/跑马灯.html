@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>标题跑马灯案例</title>
+	</head>
+
+	<body>
+		<script>
+			//每隔0.5秒，让title最后一个文字放到title最最前面去
+			/*一、数组方法：setInterval(function() {
+				//让title最后一个文字放到title最前面去
+				//使用字符数组的方法
+				//数组有：pop方法可以从数组的最后位置弹出一个元素
+				//				unshift方法可以从数组的头部添加元素
+				
+				//把字符串转成数组
+				var charArray = document.title.split("");
+				//让字符数组的最后一个元素出数组
+				var lastChar = charArray.pop();
+				//吧最后的一个元素插入到数组的开头
+				charArray.unshift(lastChar);
+				//把数组转成字符串
+				var newTitle = charArray.join("");
+				document.title = newTitle;//把新的标题改到浏览器上去
+			}, 200);*/
+		/*	二、slice方法：var intervalID =setInterval(function(){
+				//拿到当前页面的title
+				var oldTitle = document.title;
+				//拿到当前页面title的最后一个字符
+				//slice方法，可以接受两个参数
+				//第一个参数:截取字符串起始位置，第二个参数是结束为止
+				//slice方法不影响原始字符串，截取到结束为止前一个元素。
+				var lastChar = oldTitle.slice(oldTitle.length -1);
+				var beforeStr = oldTitle.slice(0,oldTitle.length - 1);
+				document.title = lastChar + beforeStr;
+			},500);
+			//5秒钟之后，执行清除时钟代码。
+			setTimeout(function(){
+				clearInterval(intervalID);
+			},5000);*/
+			
+		</script>
+	</body>
+
+</html>

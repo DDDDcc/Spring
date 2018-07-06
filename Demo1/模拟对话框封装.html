@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>面向对象的封装</title>
+		<style>
+			html,
+			body,
+			div,
+			h3 {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.dialog_wrap {
+				display: none;
+			}
+			
+			.dialog {
+				position: absolute;
+				background-color: #9900CC;
+				border: 1px solid #ccc;
+				width: 300px;
+				/*display: none;*/
+				left: 50%;
+				margin-top: -151px;
+				margin-left: -151px;
+				top: 50%;
+				z-index: 1000;
+			}
+			
+			.dialog .dialog_h {
+				border-bottom: 1px solid #ccc;
+				height: 30px;
+				position: relative;
+			}
+			
+			.dialog_b {
+				height: 269px;
+			}
+			
+			.dialog_h .btn_close {
+				position: absolute;
+				right: 15px;
+				top: 5px;
+				cursor: pointer;
+			}
+			
+			.dialog_cover {
+				/*如果一个div的父容器为body,而且是绝对定位,那么left和top,bottom: ,right都是0;
+				那么这个div就会铺满整个屏幕*/
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: blueviolet;
+				z-index: 100;
+				/*display: none;*/
+				filter: alpha(opacity=80);
+				opacity: 0.5;
+			}
+		</style>
+		<script type="text/javascript" src="js/L.js"></script>
+	</head>
+
+	<body>
+		<input type="button" name="" id="btn" value="弹出对话框" />
+		<div class="dialog_wrap" id="mDialog" title="弹出来的对话框">
+			在对话框里显示的内容
+			<p>
+				1233322
+			</p>
+			<input type="button" name="" id="" value="关闭" />
+		</div>
+
+		<script type="text/javascript">
+			window, onload = function() {
+				var btn = document.getElementById('btn');
+				var dialog = L.Dialog("#mDialog"); //L框架下创建的对话框
+				btn.onclick = function() {
+					//在#mDialog上创建一个模态对话框。
+					//
+					//					var dialog = new Dialog("#mDialog");
+					//					var dialog = Dialog("#mDialog");//不用new也不报错。
+					
+					//可能框架有多个组件，要兼容扩展其他组件。L框架
+					dialog.show(); //弹出对话框
+
+				}
+			}
+		</script>
+		<h1>1</h1>
+		<h1>2</h1>
+		<h1>3</h1>
+		<h1>4</h1>
+		<h1>5</h1>
+		<h1>6</h1>
+		<h1>7</h1>
+		<h1>8</h1>
+		<h1>9</h1>
+		<h1>10</h1>
+		<h1>11</h1>
+		<h1>12</h1>
+		<h1>13</h1>
+		<h1>14</h1>
+		<h1>15</h1>
+		<h1>16</h1>
+		<h1>17</h1>
+		<h1>18</h1>
+		<h1>19</h1>
+		<h1>20</h1>
+		<h1>21</h1>
+		<h1>22</h1>
+		<h1>23</h1>
+		<h1>24</h1>
+		<h1>25</h1>
+	</body>
+
+</html>

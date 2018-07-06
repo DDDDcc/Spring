@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/document.js" ></script>
+		<script type="text/javascript" src="js/EventUtil.js" ></script>
+	</head>
+	<body>
+		<ul id="menu">
+			
+		</ul>
+		<script type="text/javascript">
+			(function(){
+				//数据：假设数据从后台通过ajax获取
+				var data = [
+				{name:'首页',url:"www.baidu.com",id:1},
+				{name:'关于',url:"www.taobao.com",id:2},
+				{name:'产品',url:"www.xiaomi.com",id:3},
+				{name:'案例',url:"www.jd.com",id:4},
+				{name:'联系',url:"www.baidu.com",id:5}
+				];
+				//页面加载完成后动态加载li标签数据
+				document.myReady(function(){
+				
+					loadMenu();//初始化菜单数据。
+					//初始化事件绑定
+					
+					//提前做一些数据处理
+				});
+				//加载菜单数据
+				function loadMenu(){
+					var menu = document.getElementById('menu');
+						//动态创建li标签
+						
+						for(var i = 0;i< data.length;i++){
+							
+							//创建标签节点
+							var liElment = document.createElement("li");
+							//给Li设置属性
+							liElment.setAttribute('id','menu'+data[i].id);
+							//创建a标签节点
+							var menuLinkElement = document.createElement('a');
+							menuLinkElement.setAttribute('href',data[i].url);
+							//menuLinkElement.innerHTML = data[i].name;设置a标签的值，兼容性写法
+							if(menuLinkElement.textContent){
+								menuLinkElement.textContent = data[i].name;//ie9+ 标准浏览器
+							}else{
+								menuLinkElement.innerText = data[i].name;// ie早期版本
+							}
+							//把a标签添加到li标签中去
+							liElment.appendChild(menuLinkElement);
+							//把li标签添加到ul标签中去
+							menu.appendChild(liElment);
+							
+						}
+				}
+				
+			})();
+		</script>
+	</body>
+</html>

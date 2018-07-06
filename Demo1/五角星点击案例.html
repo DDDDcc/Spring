@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style>
+			span{
+				font-size:30px;
+			cursor: pointer;
+			}
+			
+		</style>
+	</head>
+	<body>
+	<div class="wjx_wrap">
+		<span>☆</span>
+		<span>☆</span>
+		<span>☆</span>
+		<span>☆</span>
+		<span>☆</span>
+	</div>
+		<script>
+			//五角星点击案例
+			//拿到所有的五角星的span的NodeList集合
+			var wjxList = document.querySelectorAll('.wjx_wrap span');
+//			wjxList.forEach(function(element,index){
+//				element.addEventListener('click',function(){
+//					//把所有的五角星设置为空心的五角星
+//					wjxList.forEach(function(wjx,index){
+//						wjx.innerHTML = '☆';
+//					});
+//					//把自己设置成实心的
+//					element.innerHTML = '★';
+//				});
+//			});
+			
+			
+			
+			//循环注册事件注意内存消耗问题
+			wjxList.forEach(function(element,index){
+				element.addEventListener('click',wjxClickHandler)
+			});
+			
+			
+			function wjxClickHandler(){
+				//把所有的五角星设置为空心的五角星
+					wjxList.forEach(function(wjx,index){
+						wjx.innerHTML = '☆';
+					});
+					//把自己设置成实心的
+					//element.innerHTML = '★';
+					//在事件处理函数的作用域中，this就指向当前注册事件的标签元素。
+					this.innerHTML = '★';
+			};
+		</script>
+	</body>
+</html>

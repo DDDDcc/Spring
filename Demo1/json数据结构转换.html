@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			var data = [
+				['name', 'age', 'language'],
+				['Treasure', 24, 'javascript'],
+				['Alice', 23, 'php'],
+				['Bob', 24, 'java'],
+				['Candy', 20, 'c#'],
+			]
+
+//			function tojson(data) {
+//				if(!data.length) return null;
+//				
+//				var keys = data[0]; //所有的key
+//				var list = []; //用于存储输出结果
+//				//遍历输出数据（数据第一条定义的是key，所以数据从第二条开始遍历）
+//				for(var i = 1; i < data.length; i++) {
+//					var tmpVal = {}; //临时存储
+//					//为每条数据配上对应的key，形成一个新的对象并存储到temVal里
+//					for(var j = 0; j < keys.length; j++) {
+//						tmpVal[keys[j]] = data[i][j];
+//					}
+//					//将创建的新对象保存到待输出的结果集中
+//					list.push(tmpVal);
+//				};
+//				document.write(JSON.stringify(list));
+//				//return list;
+//			};
+//			tojson(data);//要启动函数。备注：次写法比较耗内存，需要优化.....
+			
+			
+
+			//			function toJSON(){
+			//				var list = [];
+			//				data.map(function(d,k){
+			//					k>0 && list.push({name:d[0],age:d[1],language:d[2]})
+			//				})
+			//				document.write(JSON.stringify(list));
+			//			}
+			//			toJSON();
+			//.map()方法，第一个参数，数组项；
+			//第二个参数，数组成员在数组中的索引；
+			//第三参数，数组本身。
+			
+			
+			
+			
+			//ES6的map方法（报错原因：Hbuilder不支持ES6）
+    var  newArr = arr.map(([a, b, c]) => {
+      return {
+        name: a,
+        age: b,
+        language: c
+      }
+    })
+    console.log('newArr');
+    console.log(newArr); // => [{},{}]
+
+		</script>
+	</body>
+
+</html>

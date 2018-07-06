@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>浏览器时钟</title>
+	</head>
+	<body>
+		<script>
+			//window.setInterval()
+			//可以传两个参数
+			//1、要执行的代码段（可以是一个函数，也可以是一段代码字符串）
+			//2、要间隔执行代码段的毫秒数
+			/*一个函数：setInterval(function(){
+				
+			} ,1000);*/
+			//不推荐使用字符串setInterval("alert(1),2000")
+			var t  = setInterval(function(){//返回值为var t 停止清除t即可
+				
+			},1000)
+			setTimeout();//延迟delay毫秒之后，执行代码段。只执行一次
+			setTimeout(function(){
+				//停止上面的时钟
+				clearInterval(t);//停止上面的时钟，清除定时器
+			},1000)
+		</script>
+	</body>
+</html>

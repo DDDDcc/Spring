@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body,div,ul,li{
+				padding: 0;margin: 0;
+			}
+			ul,ol{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				color: #000;
+			}
+			.sildShow{
+				width: 500px;
+				height: 300px;
+				border: 1px solid #ccc;
+				margin: 100px auto;
+				overflow: hidden;
+				position: relative;
+			}
+		.sildShow	.silde_img_wrap{
+				width: 2000px;
+				position: absolute;
+				/*left: -200px;*/
+				top: 0;
+				z-index: 1;
+			}
+			.sildShow .silde_img_wrap li{
+				float: left;
+				width: 500px;
+			}
+			.sildShow .silde_img_wrap li img{
+				width: 100%;
+				height: 100%;
+			}
+			.slide_btn_wrap{
+				position: absolute;
+				z-index: 100;
+				top:50%;
+				left: 0;
+				width: 100%;
+				height: 30px;
+				margin-top: -15px;
+			}
+			.prev{
+				float: left;
+			}
+			.next{
+				float: right;
+			}
+			.slide_btn_wrap a{
+				color: #999;
+				font-size: 30px;
+				line-height: 30px;
+				font-weight: bold;
+				background-color: rgb(99,99,99,0.5);
+				margin: 5px ;
+			}
+			.slide_btn_wrap a:hover{
+				background-color: rgb(99,99,99,.8);
+			}
+			.sildShow .slide_sel_btn{
+				position: absolute;
+				top: 80%;
+				height: 10px;
+				left: 50%;
+				width:64px;
+				z-index: 100;
+				margin-left: -28px;
+			}
+			.slide_sel_btn a{
+				border-radius: 50px;
+				background-color: #fff;
+				width: 8px;height: 8px;
+				margin-right: 8px;
+				float: left;
+			}
+			.slide_sel_btn a:hover{
+				background-color: #000000;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="sildShow">
+			<!--滑动的图片-->
+			<ul class="silde_img_wrap">
+				<li><a href=""><img src="img/0d6e8c8aead10b2691cea748c84af194 (1).jpg" alt=""></a></li>
+				<li><a href=""><img src="img/3d1538693661d2c28aa76cbc942dd187.jpg" alt=""></a></li>
+				<li><a href=""><img src="img/5f7afe654efeca5b8b1b6323371586ba.jpg" alt=""></a></li>
+				<li><a href=""><img src="img/97f733416b16c049f5c8963a6b69eb8d.jpg" alt=""></a></li>
+			</ul>
+			<!--左右的按钮-->
+			<div class="slide_btn_wrap">
+				<a href="javascript:0" class="prev">&lt;</a>
+				<a href="javascript:0" class="next">&gt;</a>
+			</div>
+			<!--四个小圆点-->
+			<div class="slide_sel_btn">
+				<a href="javascript:0""></a>
+				<a href="javascript:0""></a>
+				<a href="javascript:0""></a>
+				<a href="javascript:0""></a>
+			</div>
+			
+		</div>
+	</body>
+</html>

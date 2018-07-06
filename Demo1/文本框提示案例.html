@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="" placeholder="abc" />
+		<input type="text" name="" id="text2" value="" />
+		<script>
+			//不支持placeholder的浏览器处理方法
+			window.onload = function(){
+				var text2  =document.getElementById('text2');
+				text2.style.color = "#ccc"
+				//文本框2获得焦点的时候，判断文本框值是否等于abc
+				text2.onfocus = function(){
+					if (text2.value == "abc") {
+						text2.value = "";
+						text2.style.color = "#000";
+					} 
+				}
+				//文本框2离开焦点的时候，判断文本框的值是否为空。空则设置回adc
+				text2.onblur = function(){
+					if(text2.value ==""){
+						text2.value = "abc";
+						text2.style.color = "#ccc";
+					}
+				}
+			};
+		</script>
+		
+		
+		
+	</body>
+</html>

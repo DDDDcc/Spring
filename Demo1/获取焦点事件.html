@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+
+		</style>
+
+	</head>
+
+	<body>
+		<input type="text" name="" id="text1" value="" />
+		<input type="text" name="" id="text2" value="" />
+		<input type="button" name="" id="btnFocus2" value="text2获得焦点" />
+		<script type="text/javascript">
+			//			focus:当元素获取焦点的时候触发次事件,此事件不会冒泡
+			//			blur:当标签失去焦点的时候触发,此事件不会冒泡
+			//			Element.focus()让元素标签获得焦点
+			window.onload = function(){
+				var text1 = document.getElementById('text1');
+				text1.onfocus = function(){
+					console.log('获得焦点');
+				};
+				
+				text1.onblur = function(){
+					console.log('失去焦点');
+				};
+			};
+			var btnFocus2  =document.getElementById('btnFocus2');
+			btnFocus2.onclick = function(){
+				//调用focus（）函数
+				document.getElementById('text2').focus();
+			};
+			//要实现文本框2不能为空
+			var txt2  =document.getElementById('text2');
+			text2.onblur = function(){
+				//判断文本框2的value是否为空
+				if(!text2.value||text2.value==""){
+				//如果为空，则让文本框2继续获得焦点
+					text2.focus();
+					//让文本框的边框设置为红色
+					text2.style.borderColor = 'red';
+				}else{
+					text2.style.borderColor = " ";
+				}
+			};
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+
+</html>

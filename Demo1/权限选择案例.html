@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>权限选择案例</title>
+		<style>
+			select {
+				width: 100px;
+				height: 100px;
+				float: left;
+			}
+			
+			.box {
+				float: left;
+				width: 100px;
+			}
+			
+			.box input {
+				width: 51px;
+			}
+		</style>
+		<script type="text/javascript" src="js/document.js"></script>
+		<script type="text/javascript" src="js/EventUtil_2.js"></script>
+	</head>
+
+	<body>
+
+		<select name="l" id="l" multiple="multiple">
+			<!--multiple变成多选-->
+			<option value="1">添加商品</option>
+			<option value="2">读取商品</option>
+			<option value="3">修改商品</option>
+			<option value="4">删除订单</option>
+			<option value="5">用户查看</option>
+		</select>
+		<div class="box" id="box">
+			<input type="button" value=">" dir="add" />
+			<input type="button" value=">>" dir="addAll" />
+			<input type="button" value="<" dir="del" />
+			<input type="button" value=">>" dir="delAll" />
+
+		</div>
+		<select name="r" id="r" multiple="multiple"></select>
+
+		<script type="text/javascript">
+			(function() {
+				document.myReady(function() {
+					//下面给四个input按钮绑定事件
+					var box = document.getElementById('box');
+					EventUtil.addEvent(box, 'click', function(e) {
+						//拿到事件源对象
+						var target = EventUtil.getTarget(e);
+						
+						if(target === this) {
+							//说明是当前的div
+							return; //直接结束当前的选择程序
+
+						}
+
+						var dir = target.getAttribute('dir'); //拿到dir的属性
+						var l = document.getElementById('l');
+						var r = document.getElementById('r');
+						
+						switch(dir) {
+							case 'add':
+								add(false, l, r); //从左边向右边的select标签添加option
+								break;
+							case 'addAll':
+								add(true, l, r); //添加全部
+								break;
+							case 'del':
+								add(false, r, l);
+								break;
+							case 'delAll':
+								add(true, l, r);
+								break;
+
+						}
+
+					});
+				});
+
+				//接受三个参数，第一个参数是否全部进行移动
+				//第二个和第三个参数是要处理的select标签
+				function add(isAll, sel1, sel2) {
+					//从sel1的option移动到sel2里面去
+					//先把所有的需要移动到sel2里面的option都去到array
+
+					var tempArry = []; //放到要移动的数组
+					for(var i = 0; i < sel1.options.length; i++) {
+						if(isAll || sel1.options[i].selected) {
+							tempArry.push(sel1.options[i]);
+						}
+					}
+					//最后一步
+					while(tempArry.length > 0) {
+						var opt = tempArry.pop();
+						sel1.remove(opt.index);
+						sel2.add(opt, null);
+					}
+				}
+			})();
+		</script>
+	</body>
+
+</html>

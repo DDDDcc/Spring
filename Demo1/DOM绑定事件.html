@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>绑定事件</title>
+	</head>
+	<body>
+		<p onclick="window.alert('123')">点击我试试启动绑定事件</p>
+		<input type="button" name="" id="" value="点击我" onclick="alert('点击就对了')"/>
+		<!--事件三要素：
+			事件源：p标签
+			事件名：onclick
+			行为方法：window.alert('123')
+			
+		-->
+		<div id="tm">求我啊</div>
+		
+		<script>
+			//代码的方式绑定事件：
+			//第一步拿到要绑定事件的div
+			var d = document.querySelector("#tm");//id选择器
+			d.onclick = function(){
+				//事件响应方法 中this指向当前事件源对象
+				alert(this.innerHTML);
+			};
+		</script>
+	</body>
+</html>

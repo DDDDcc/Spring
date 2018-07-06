@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Filter with Canvas</title>
+		<style>
+			html,body{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.tool-bar {
+				padding: 15px 0;
+				text-align: center;
+				background-color: #fff;
+				border-bottom: 1px solid #ccc;
+			}
+			
+			.tool-bar input {
+				padding: 10px 15px;
+				border: 0;
+				background-color: #28e;
+				border-radius: 3px;
+				color: #fff;
+				font-size: 14px;
+				cursor: pointer;
+				-webkit-transition: background-color .2s ease-out;
+				-o-transition: background-color .2s ease-out;
+				transition: background-color .2s ease-out;
+			}
+			
+			.tool-bar input:hover {
+				background-color: #06c;
+			}
+			
+			.img-cont {
+				padding: 15px 0;
+				text-align: center;
+			}
+		</style>
+		<script src="js/filter.min.js"></script>
+		<!-- 源文件 filter.js -->
+	</head>
+
+	<body>
+		<div class="tool-bar">
+			<input type="button" id="reset" value="原始图片">
+			<input type="button" id="grayscale" value="灰度">
+			<input type="button" id="sepia" value="复古">
+			<input type="button" id="red" value="红色蒙版">
+			<input type="button" id="invert" value="反色">
+			<input type="button" id="brightness" value="亮度">
+			<input type="button" id="opacity" value="半透明">
+		</div>
+		<div id="J_Imgs" class="img-cont">
+			<img src="img/img_01.jpg" alt="" class="J_Filter">
+			<img src="img/img_02.jpg" alt="" class="J_Filter">
+			<img src="img/img_03.jpg" alt="" class="J_Filter">
+		</div>
+
+		
+		<script>
+			(function() {
+				var reset = document.getElementById("reset"),
+					gray = document.getElementById("grayscale"),
+					sepia = document.getElementById("sepia"),
+					red = document.getElementById("red"),
+					invert = document.getElementById("invert"),
+					brightness = document.getElementById("brightness"),
+					opacity = document.getElementById("opacity");
+
+				// 创建图片滤镜实例
+				var f = new ImageFilter({
+					id: "J_Imgs",
+					imgs: "J_Filter"
+				});
+
+				// 还原原始图片效果
+				reset.onclick = function() {
+					f.reset();
+				}
+
+				// 灰度显示
+				gray.onclick = function() {
+					f.doFilter("grayscale");
+				}
+
+				// 复古效果
+				sepia.onclick = function() {
+					f.doFilter("sepia");
+				}
+
+				// 红色蒙版
+				red.onclick = function() {
+					f.doFilter("red");
+				}
+
+				// 反色
+				invert.onclick = function() {
+					f.doFilter("invert");
+				}
+
+				// 高亮
+				brightness.onclick = function() {
+					f.doFilter("brightness");
+				}
+
+				// 透明度
+				opacity.onclick = function() {
+					f.doFilter("opacity");
+				}
+			})();
+		</script>
+		<p style="display:none;">
+		<!--	<script src="http://s13.cnzz.com/stat.php?id=3730977&web_id=3730977&online=1&show=line" language="JavaScript"></script>-->
+		<!--<script type="text/javascript" src="js/filter.min.js">-->
+			
+		</script>
+		</p>
+	</body>
+
+</html>

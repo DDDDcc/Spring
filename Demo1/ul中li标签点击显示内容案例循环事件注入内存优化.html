@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul id="cityList">
+			<li>北京1</li>
+			<li>北京2</li>
+			<li>北京3</li>
+			<li>北京4</li>
+			<li>北京5</li>
+		</ul>
+		<script>
+			//ul中li标签点击显示内容案例
+			//给所有的li标签绑定点击事件，并弹出li标签的内容
+			//第一步：先得到所有的li标签
+			var liNodeList = document.querySelectorAll('#cityList li');
+			/*liNodeList.forEach(function(element,index){//element遍历当前元素
+				//绑定事件
+				element.onclick = function(){
+					alert(this.innerHTML);
+				};
+				//因为：li标签的事件响应方法都是一样的，没有必要每循环一次都创建一个
+				
+			});*/
+			liNodeList.forEach(function(element, index) {
+				//直接将元素的事件响应方法指向一个声明的函数
+				element.onclick = liOnclickHander; //优化，减少内存消耗，多个li共用一个函数对象
+			});
+
+			//li标签点击时触发的事件响应方法
+			function liOnclickHander() {
+				alert(this.innerHTML);
+			}
+		</script>
+	</body>
+
+</html>
