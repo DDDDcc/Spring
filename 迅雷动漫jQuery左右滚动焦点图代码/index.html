@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<link rel="stylesheet" href="css/sucaijiayuan.css">
+<base target="_blank">
+</head>
+<body>
+<!-- ���� ��ʼ --><br /><br />
+<div class="focus">
+    <div class="focusbox">         
+        <div class="focusimg">
+        <ul class="fimglist clearfix">
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/Gintama.jpg" title="����ͼ��"></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/SteinsGate.jpg" title="����ͼ��"></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/Unicorn.jpg" title="����ͼ��"></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/Berserk.jpg" title="����ͼ��"></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/SummerWars.jpg" title="����ͼ��"></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/akito.jpg" title="����ͼ��"></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/EVA.jpg" title="����ͼ��"></a></li>
+        </ul>
+        </div> 
+        <div class="focustool">
+        <ul class="ftoollist clearfix"><!--ͨ����Ƹ�ul��leftֵ��ʵ���б�������ƶ�������Ϊ931px-->
+            <li class="on"><a href="http://www.sucaijiayuan.com/"><img src="images/Gintama_s.jpg"><p class="imgname">���糡��</p><p class="imgshortcat">��Զ��������</p></a></li><!--��ǰ��ʱΪ��li���class: on-->
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/SteinsGate_s.jpg"><p class="imgname">ʯͷ�ž糡��</p><p class="imgshortcat">��������ļ��Ӹ�</p></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/Unicorn_s.jpg"><p class="imgname">�ߴ�UC</p><p class="imgshortcat">Gundam Unicorn</p></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/Berserk_s.jpg"><p class="imgname">���紫��</p><p class="imgshortcat">�ƽ�ʱ��</p></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/SummerWars_s.jpg"><p class="imgname">���մ���ս</p><p class="imgshortcat">Summer Wars</p></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/akito_s.jpg"><p class="imgname">����İ����</p><p class="imgshortcat">Code Geass</p></a></li>
+            <li><a href="http://www.sucaijiayuan.com/"><img src="images/EVA_s.jpg"><p class="imgname">��EVA�糡��</p><p class="imgshortcat">New Evangelion</p></a></li>
+        </ul>
+        </div>
+        <a href="javascript://" class="btn_pre" target="_self" style="display:none">��һҳ</a>
+        <a href="javascript://" class="btn_next" target="_self" style="display:none">��һҳ</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+    jQuery.noConflict();
+	jQuery(document).ready(function($){
+		$(".guidelist li").hover(
+			function () {
+				$(this).attr("class", "mouseon");
+			  },
+			  function () {
+				$(this).attr("class", "mouseout");
+			  }
+		);
+		$(".ftoollist li").mouseover(function(){
+			$(this).siblings().removeClass("on");
+			$(this).addClass("on");
+			var preNumber=$(this).prevAll().size();
+			$(".fimglist li").removeClass("onpre");
+			$(".fimglist li:nth-child("+preNumber+")").addClass("onpre");
+			var margin = 990;
+			margin = margin *preNumber; 
+			margin = margin * -1;
+			$(".fimglist").stop().animate({marginLeft: margin + "px"}, {duration: 500});
+		});
+	});
+</script>
+
+</body>
+</html>

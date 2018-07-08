@@ -1,0 +1,88 @@
+#wrap {
+	position: relative;
+	/*margin: 20px auto;*/
+	width: 100%;
+	height: 620px;
+	overflow: hidden;
+}
+
+#wrap .banner {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 2s;
+}
+
+.banner img {
+	display: block;
+	position: absolute;
+	width: 2560px;
+	height: 620px;
+	margin-left: -1280px;
+	left: 50%;
+}
+
+#wrap .tab {
+	position: absolute;
+	bottom: 10px;
+	right: 50%;
+}
+
+#wrap .tab span {
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin: 3px;
+	background: rgba(105, 105, 105, 0.5);
+	border-radius: 50%;
+	cursor: pointer;
+	border: 2px solid #887B6E;
+}
+
+#wrap .tab span.on {
+	background: #E2CEB7;
+}
+
+#wrap .tab span:hover {
+	background: #E2CEB7;
+}
+
+.left,
+.right {
+	position: absolute;
+	width: 41px;
+	height: 69px;
+	top: 50%;
+	margin-top: -30px;
+	line-height: 69px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 70px;
+	cursor: pointer;
+	/*display: none;*/
+	z-index: 999;
+	color: #757575;
+}
+
+.left:hover{
+	background: url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat 0px 50%;
+}
+.right:hover {
+	background: url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -42px 50%;
+}
+
+.left {
+	left: 173px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background: url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px 50%;
+}
+
+.right {
+	right: 173px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background: url(http://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -127px 50%;
+}
